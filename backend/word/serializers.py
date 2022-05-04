@@ -6,3 +6,5 @@ class WordSerializer(serializers.ModelSerializer):
         model = Word
         fields = ['id ' ,'name', 'definition' , 'user_id']
         depth = 2
+
+    user_id = serializers.IntegerField(write_only=True)
