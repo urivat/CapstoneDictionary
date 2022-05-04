@@ -5,4 +5,4 @@ class WordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Word
         fields = ['id ' ,'name', 'definition' , 'user_id']
-        depth = 3
+        depth = 2
