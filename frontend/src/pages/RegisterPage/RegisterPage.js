@@ -21,12 +21,12 @@ const RegisterPage = () => {
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
-          <input
+          <input                                                                                                  
             type="text"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
-          />
+          />                
         </label>
         <label>
           First Name:{" "}

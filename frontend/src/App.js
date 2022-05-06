@@ -24,11 +24,11 @@ const [words , setWords] = useState([{  //will hold words coming in to an array.
 const [User, setUser] = useState()
 const [search , setSearch] = useState()
 useEffect(() => {
-  axios.get('http://127.0.0.1:8000/api/word/all/').then((res) => {
+  const getAllWords = () => axios.get('http://127.0.0.1:8000/api/word/all/').then((res) => {
     const ResponseWords = res.data
     setWords(ResponseWords)
-  });
-}, [])
+  }, getAllWords())         //does this need a cleanup function as of now its coming on the first render only. 
+}, [words])
 
 
 
@@ -46,6 +46,7 @@ const wordArraySpread = () => {
     <div>
       <Navbar />
       <SearchWord addNew = {wordArraySpread} />
+
       <Routes>
         <Route
           path="/"
