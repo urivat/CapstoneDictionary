@@ -14,7 +14,7 @@ const HomePage = () => {
 useEffect(() => {
   const getAllWords = async () => {
     try {
-      let res = await axios.get('http://127.0.0.1:8000/api/word/', {
+      let res = await axios.get('http://127.0.0.1:8000/api/word/all/', {
         headers: {
           Authorization: "Bearer" + token,
         },
@@ -22,14 +22,20 @@ useEffect(() => {
       setWords(res.data)
     } catch (error) {
       console.log(error.message)
-    }getAllWords()
-  } 
+    }
+  }; getAllWords();
 }, [token]);
     
 
 return(
         <div>
-          <h3>Home Page for {user.name}</h3>
+          <h3>Home Page for {user.username}</h3>
+          {words &&
+          words.map((word) => (
+            <span key={word.id}>
+              {word.name}: {word.definition}.<br/>
+            </span>
+          ))}
         </div>
 ); 
 };

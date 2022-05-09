@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import UserPage from "./pages/UserPage/UserPage"
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -56,6 +57,7 @@ const wordArraySpread = () => {
             </PrivateRoute>
           }
         />
+        {/* <Route path ="/word" element = {<UserPage />} /> */}
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
