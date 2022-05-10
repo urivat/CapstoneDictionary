@@ -11,10 +11,11 @@ import UserPage from "./pages/UserPage/UserPage"
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import Definition from "./pages/DefinitionPage/Definition";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import SearchWord from "./components/SearchWord";
+import SearchWord from "./components/SearchBar";
 import axios from "axios";
 
 function App() {
@@ -46,7 +47,7 @@ const wordArraySpread = () => {
   return (
     <div>
       <Navbar />
-      <SearchWord addNew = {wordArraySpread} />
+      <UserPage dictionary = {words} />
 
       <Routes>
         <Route
@@ -57,9 +58,18 @@ const wordArraySpread = () => {
             </PrivateRoute>
           }
         />
-        {/* <Route path ="/word" element = {<UserPage />} /> */}
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute>
+              < UserPage/>
+            </PrivateRoute>
+          }
+        />
+        
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/search/:word" element={<Definition/>} />
       </Routes>
       <Footer />
     </div>

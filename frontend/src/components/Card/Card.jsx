@@ -1,7 +1,10 @@
 import React from 'react'
 
-const Card = ({}) => {
-    return ( null );
+const Card = ({}) => {  // create outlook or how you want falsh card to look
+    return ( <div container>
+    
+
+    </div>)
 }
  
 export default Card;
