@@ -1,8 +1,8 @@
 import React from 'react'
 import useAuth from "../../hooks/useAuth";
+import Collection from '../../components/Collection/Collection';
 
-
-const UserPage = () => {
+const UserPage = ({dictionary}) => {
     const [user, token] = useAuth();
 
 
@@ -23,7 +23,8 @@ const UserPage = () => {
   return (
     <div>
     <h1>UserPage </h1>
-    <span> <Collection /></span>
+    <ul> {dictionary.map((word)=> <li><Collection words= {word}/></li>)  } </ul>
+   
     
     </div>
     

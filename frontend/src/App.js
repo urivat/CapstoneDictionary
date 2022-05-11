@@ -49,7 +49,7 @@ const wordArraySpread = () => {
   return (
     <div>
       <Navbar />
-      <UserPage dictionary = {words} />
+      
 
       <Routes>
         <Route
@@ -64,7 +64,7 @@ const wordArraySpread = () => {
           path="/user"
           element={
             <PrivateRoute>
-              < UserPage/>
+              <UserPage dictionary = {words} appendedWord= {mappedWords}/>
             </PrivateRoute>
           }
         />
