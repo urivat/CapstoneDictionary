@@ -36,12 +36,11 @@ const mappedWords = words.map((word , index) => {
   <span key= {index}> {word.name}: {word.definition}. </span>
 })
 
-const wordArraySpread = () => {
-  let newWord = {
-    name: 'name',
-    definition: 'definition'
-  }
-  setWords((prev) => [...prev, newWord ])// this will be for creating/adding words to a card.
+const wordArraySpread = (entry) => {
+  let newWord = [...words , entry]
+   setWords(newWord)// this will be for creating/adding words to a card.
+  
+  
 }
 
 
@@ -64,7 +63,7 @@ const wordArraySpread = () => {
           path="/user"
           element={
             <PrivateRoute>
-              <UserPage dictionary = {words} appendedWord= {mappedWords}/>
+              <UserPage dictionary = {words}/>
             </PrivateRoute>
           }
         />

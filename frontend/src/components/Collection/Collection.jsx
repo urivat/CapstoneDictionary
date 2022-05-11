@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
  
-const Collection = ({words}) => {
+
+const Collection = ({word}) => {
+
+
   return (
     <div style={{}}>
       <h4>How to use CardComponent in ReactJS?</h4>
@@ -21,25 +24,14 @@ const Collection = ({words}) => {
             color="textSecondary"
             gutterBottom
           >
-            {words}
+            {word.name}
           </Typography>
           <Typography variant="h5" component="h2">
-            How are you ?
-          </Typography>
-          <Typography
-            style={{
-              marginBottom: 12,
-            }}
-            color="textSecondary"
-          >
-            Keep Motivated
-          </Typography>
-          <Typography variant="body2" component="p">
-            Stay Happy
+            {word.definition}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Stay Safe.....</Button>
+          <Button variant='contained' size="small" color="black">Study</Button>
         </CardActions>
       </Card>
     </div>
