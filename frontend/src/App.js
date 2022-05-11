@@ -24,7 +24,7 @@ const [words , setWords] = useState([{  //will hold words coming in to an array.
   definition: 'leave, especially in order to start a journey',
 }])
 const [User, setUser] = useState()
-const [search , setSearch] = useState()
+
 useEffect(() => {
   const getAllWords = () => axios.get('http://127.0.0.1:8000/api/word/all/').then((res) => {
     const ResponseWords = res.data
@@ -32,7 +32,9 @@ useEffect(() => {
   }, getAllWords())         //does this need a cleanup function as of now its coming on the first render only. 
 }, [words])
 
-
+const mappedWords = words.map((word , index) => {
+  <span key= {index}> {word.name}: {word.definition}. </span>
+})
 
 const wordArraySpread = () => {
   let newWord = {

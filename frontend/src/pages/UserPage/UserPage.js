@@ -21,7 +21,12 @@ const UserPage = () => {
 //   }; getAllWords();
 // }, [token]);
   return (
-    <div>UserPage</div>
+    <div>
+    <h1>UserPage </h1>
+    <span> <Collection /></span>
+    
+    </div>
+    
   )
 }
 

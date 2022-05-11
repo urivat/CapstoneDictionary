@@ -20,7 +20,11 @@ function Definition() {
   return (
     <div>
       Definition
-      <h1> {word.word}</h1>
+      <h1>Definition</h1>
+      {definition.map((def , index) => <ul>
+        <li key={index}> {def.meaning.map(meaning => meaning.definition)} </li>
+
+      </ul>)}
     </div>
   );
 }
