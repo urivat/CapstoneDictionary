@@ -1,31 +1,39 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Collection from "../../components/Collection/Collection";
+
 
 function Definition() {
   const { word } = useParams();
   const navigate = useNavigate();
-  const [definition, setDefinition] = useState([])
+  const [wordData, setWordData] = useState([])
+  const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     const fetchDefinition = async () => {
       const res = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       console.log(res.data);
-      setDefinition(res.data)
+      setWordData(res.data[0])
+      setLoading(false)
     };
     fetchDefinition();
   }, []);
 
   return (
     <div>
-      Definition
-      <h1>Definition</h1>
-      {definition.map((def , index) => <ul>
-        <li key={index}> {def.meaning.map(meaning => meaning.definition)} </li>
-
-      </ul>)}
+    <h3>Definition</h3>
+      {loading ? 'loading' : `${wordData.word}: `} <br/>
+      {loading ? 'loading' : wordData.meanings[0].definitions[0].definition}
+      {/* {loading ? 'loading' : wordData.meanings[0].definitions.map((def , index) => { return <p key={index}> {def.definition}</p>}) } */}
     </div>
+      
+        
+
+      
+   
   );
 }
 
