@@ -4,13 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import Collection from "../../components/Collection/Collection";
 import Button from "@material-ui/core/Button";
 import useAuth from "../../hooks/useAuth";
+import AddWord from "../../components/AddWord";
 
 function Definition() {
+  const [user , token] = useAuth();
   const { word } = useParams();
-  const navigate = useNavigate();
   const [wordData, setWordData] = useState([])
   const [loading, setLoading] = useState(true)
-  const [user , token] = useAuth();
+  
 
 
   useEffect(() => {
@@ -25,29 +26,24 @@ function Definition() {
     fetchDefinition();
   }, [word]);
 
-  const addToCollection = async (event) => {
-    event.preventDefault()
-    const resp = await axios.post("http://127.0.0.1:8000/api/word/", {
-      headers: {
-            Authorization: "Bearer " + token,
-    }, body: {
-        name: wordData.word, 
-        definition: wordData.meanings[0].definitions[0].definition,
-        user_id: user.id 
-    } , }); console.log(resp.data)
-    
-      };
+
+         
+
+        
+      
+
+
 
   
 
   return (
-    <div className="container" onSubmit={addToCollection}>
+    <div className="container">
     <h3>Definition</h3>
     <div >
       {loading ? 'loading' : `${wordData.word} `} <br/>
       {loading ? 'loading' : wordData.meanings[0].definitions[0].definition}
       {/* {loading ? 'loading' : wordData.meanings[0].definitions.map((def , index) => { return <p key={index}> {def.definition}</p>}) } */}
-      <Button type="submit" variant="contained" size="small" color="inherit">Add</Button>
+      <AddWord wordData = {wordData}/>
     </div>
     </div>
       
@@ -56,6 +52,21 @@ function Definition() {
       
    
   );
-}
+  }
 
 export default Definition;
+
+  // const addToCollection = async (event) => {
+  //   event.preventDefault()
+  //   const resp = await axios.post("http://127.0.0.1:8000/api/word/", {
+  //     headers: {
+  //           Authorization: "Bearer " + token,
+  //   }, body: {
+  //       name: 'wordData.word', 
+  //       definition: 'wordData.meanings[0].definitions[0].definition',
+  //       user_id: user.id 
+  //   } , }); console.log(resp.data)
+  //           setAddWord(resp.data)
+            
+    
+  //     };
