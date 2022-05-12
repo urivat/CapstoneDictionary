@@ -11,7 +11,6 @@ const Collection = ({word}) => {
 
   return (
     <div style={{}}>
-      <h4>How to use CardComponent in ReactJS?</h4>
       <Card
         style={{
           width: 400,

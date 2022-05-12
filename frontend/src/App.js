@@ -15,7 +15,7 @@ import Definition from "./pages/DefinitionPage/Definition";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import SearchWord from "./components/SearchBar";
+
 import axios from "axios";
 
 function App() {
@@ -32,9 +32,7 @@ useEffect(() => {
   }, getAllWords())         //does this need a cleanup function as of now its coming on the first render only. 
 }, [words])
 
-const mappedWords = words.map((word , index) => {
-  <span key= {index}> {word.name}: {word.definition}. </span>
-})
+
 
 const wordArraySpread = (entry) => {
   let newWord = [...words , entry]

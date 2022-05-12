@@ -25,9 +25,9 @@ const UserPage = ({dictionary}) => {
   return (
     <>
     <h1>{user.username} </h1>
-    <ul> 
-    {wordList.map((word , index)=> {return <li key={index}><Collection word= {word}/></li>})}    
-    </ul>
+    <div className='list'>
+    {wordList.map((word , index)=> {return <span key={index}><Collection word= {word}/></span>})}    
+    </div>
     </>
     
    //return(
