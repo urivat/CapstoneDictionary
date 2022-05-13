@@ -11,7 +11,7 @@ function Definition() {
   const { word } = useParams();
   const [wordData, setWordData] = useState([])
   const [loading, setLoading] = useState(true)
-  
+  const [newWord , setNewWord] = useState([])
 
 
   useEffect(() => {
@@ -25,8 +25,35 @@ function Definition() {
     };
     fetchDefinition();
   }, [word]);
-
-
+  
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const axios = require('axios');
+  const data = JSON.stringify({
+    "id": 1,
+    "name": wordData.word,
+    "definition": wordData.meanings[0].definitions[0].definition,
+    "user_id": 1
+  });
+  
+  const config = {
+    method: 'post',
+    url: 'http://127.0.0.1:8000/api/word/',
+    headers: { 
+      'Authorization': "Bearer " + token, 
+      'Content-Type': 'application/json'
+    },
+    data : data
+  };
+  
+  axios(config)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });}
+  
          
 
         
@@ -37,15 +64,15 @@ function Definition() {
   
 
   return (
-    <div className="container">
-    <h3>Definition</h3>
-    <div >
+    <form className="container" onSubmit={handleSubmit}>
+    <label>Definition </label> 
+    <div>
       {loading ? 'loading' : `${wordData.word} `} <br/>
       {loading ? 'loading' : wordData.meanings[0].definitions[0].definition}
-      {/* {loading ? 'loading' : wordData.meanings[0].definitions.map((def , index) => { return <p key={index}> {def.definition}</p>}) } */}
-      <AddWord wordData = {wordData}/>
+      
+      <Button type="submit"  variant="contained" size="small" color="inherit">Add</Button>
     </div>
-    </div>
+    </form>
       
         
 
@@ -70,3 +97,22 @@ export default Definition;
             
     
   //     };
+  //{/* {loading ? 'loading' : wordData.meanings[0].definitions.map((def , index) => { return <p key={index}> {def.definition}</p>}) } */}//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     try {axios.post("http://127.0.0.1:8000/api/word/", {
+//      headers: {
+//        Authorization: "Bearer " + token,
+//      },
+//      data: {
+//        id: 1,
+//        name: 'light',
+//        definition: 'Visible electromagnetic radiation.',
+//        user_id: 1
+//      } 
+//    }).then((res) => {
+//      console.log(res.data)
+//      setNewWord(res.data)
+//     })} catch (error) {
+//       console.log(error)
+//     } 
+//  }

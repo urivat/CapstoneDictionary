@@ -31,6 +31,7 @@ return (
           <h1>HomePage for {user.username} </h1>
           <h3>SearchWord</h3>
           <input value={word} onChange= {event => setWord(event.target.value)} />
+          {/* <FilledInput id="outlined-basic" margin="none"  label="Outlined" variant="outlined" value={word} onChange= {event => setWord(event.target.value)} /> */}
           <button  type="submit">search</button> 
         </form>
         
