@@ -5,14 +5,20 @@ import axios from "axios";
 import {Box, typography , FilledInput , IconButton, Container} from '@material-ui/core';
 import {Search as SearchIcon } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
+import Cards from "../../components/Collection/Cards";
+import WordList from "../../components/WordList";
 // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
 const HomePage = () => {
   
-  const [user, token] = useAuth();
+
   const [word, setWord] = useState('');
   
+  
+  
+ 
+
   
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -28,13 +34,14 @@ const HomePage = () => {
 return (
         <Container maxWidth = 'sm'>
         <form onSubmit={handleSubmit}>
-          <h1>HomePage for {user.username} </h1>
+          <h1>Vocabulary</h1>
           <h3>SearchWord</h3>
           <input value={word} onChange= {event => setWord(event.target.value)} />
           {/* <FilledInput id="outlined-basic" margin="none"  label="Outlined" variant="outlined" value={word} onChange= {event => setWord(event.target.value)} /> */}
           <button  type="submit">search</button> 
         </form>
         
+        <WordList />
         </Container>
 ); 
 };
@@ -42,7 +49,7 @@ return (
 export default HomePage;
 
 
-
+// { wordData.meanings[0].definitions.map((def , index) => { return <p key={index}> {def.definition}</p>}) } */}
 
   //  {/* <h3>Home Page for {user.username}</h3>
   //         {word &&

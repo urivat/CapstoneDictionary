@@ -6,8 +6,13 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
  
 
-const Collection = ({word}) => {
+const Cards = ({word}) => {
+  const [showList, setShowList] = useState(true)
 
+
+    const toggleState = () => {
+      setShowList(false)
+    }
 
   return (
     <div style={{}}>
@@ -30,10 +35,10 @@ const Collection = ({word}) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant='contained' size="small" color="black">Study</Button>
+          {showList: ? true: false <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>}
         </CardActions>
       </Card>
     </div>
   );
 }
-export default Collection
+export default Cards

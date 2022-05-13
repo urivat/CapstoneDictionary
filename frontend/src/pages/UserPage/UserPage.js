@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import useAuth from "../../hooks/useAuth";
-import Collection from '../../components/Collection/Collection';
+import Cards from '../../components/Collection/Cards';
 import axios from 'axios';
 
 const UserPage = ({dictionary}) => {
     const [user, token] = useAuth();
     const [wordList, setWordList] = useState([]);
-
+    
     useEffect(() => {
   const getAllWords = async () => {
     try {
@@ -26,7 +26,7 @@ const UserPage = ({dictionary}) => {
     <>
     <h1>{user.username} </h1>
     <div className='list'>
-    {wordList.map((word , index)=> {return <span key={index}><Collection word= {word}/></span>})}    
+    {wordList.map((word , index)=> {return <span key={index}><Cards word= {word}/></span>})}    
     </div>
     </>
     

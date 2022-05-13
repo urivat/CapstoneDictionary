@@ -7,11 +7,13 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import UserPage from "./pages/UserPage/UserPage"
+import StudyPage from "./pages/StudyPage/StudyPage";
+import Definition from "./pages/DefinitionPage/Definition";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import Definition from "./pages/DefinitionPage/Definition";
+
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -62,6 +64,14 @@ const wordArraySpread = (entry) => {
           element={
             <PrivateRoute>
               <UserPage dictionary = {words}/>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/user/study"
+          element={
+            <PrivateRoute>
+              <StudyPage />
             </PrivateRoute>
           }
         />

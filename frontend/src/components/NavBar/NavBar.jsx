@@ -8,11 +8,16 @@ const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
-    <div className="navBar">
+    <div className="navBar" >
       <ul>
+        <li>
+        <Link to="/user"  style={{ textDecoration: "none", color: "white" }}>
+        <b>My Cards</b>
+        </Link> 
+        </li>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Django JWT</b>
+            <b>Simply Vocabulary</b>
           </Link>
         </li>
         <li>
@@ -22,6 +27,7 @@ const Navbar = () => {
             <button onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
+        
       </ul>
     </div>
   );
