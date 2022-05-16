@@ -22,7 +22,7 @@ const WordList = () => {
    return ( 
    <div>
         <h3>Add one to your collection</h3>
-        {allWords.map((wordy , index) =>  <span key={index}><Cards word= {wordy}/></span>)}
+        {allWords.map((word) =>  <span key={word.id}><Cards word= {word}/></span>)}
     </div>);
 }
  

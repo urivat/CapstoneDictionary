@@ -7,11 +7,23 @@ import CardActions from "@material-ui/core/CardActions";
  
 
 const Cards = ({word}) => {
-  const [showList, setShowList] = useState(true)
+  const [showList, setShowList] = useState(false)
 
 
     const toggleState = () => {
-      setShowList(false)
+      if (showList === true){
+        setShowList(false)
+      }else {
+        setShowList(true)
+      }
+      
+
+      // if (buttonClassLike === "inactive") {
+      //   setButtonClassLike("active");
+      // } else {
+      //   setButtonClassLike("inactive");
+      // }
+
     }
 
   return (
@@ -24,18 +36,18 @@ const Cards = ({word}) => {
       >
         <CardContent>
           <Typography
-            style={{ fontSize: 14 }}
-            color="textSecondary"
+            style={{ fontSize: 20 }}
+            color="inherit"
             gutterBottom
           >
             {word.name}
           </Typography>
           <Typography variant="h5" component="h2">
-            {word.definition}
+            {showList ? word.definition : ' '}
           </Typography>
         </CardContent>
         <CardActions>
-          {showList: ? true: false <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>}
+          <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>
         </CardActions>
       </Card>
     </div>

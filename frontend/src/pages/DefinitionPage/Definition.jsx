@@ -9,9 +9,9 @@ import AddWord from "../../components/AddWord";
 function Definition() {
   const [user , token] = useAuth();
   const { word } = useParams();
-  const [wordData, setWordData] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [newWord , setNewWord] = useState([])
+  const [wordData, setWordData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
 
   useEffect(() => {
