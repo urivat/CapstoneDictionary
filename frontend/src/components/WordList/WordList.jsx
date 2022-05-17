@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react'
-import Cards from './Collection/Cards'
+import Cards from '../Collection/Cards'
 import axios from 'axios'
-
+import './WordList.css'
 
 const WordList = () => {
     const [allWords , setAllWords] = useState([])
@@ -20,9 +20,9 @@ const WordList = () => {
       }, []);
    
    return ( 
-   <div>
+   <div className='container'>
         <h3>Add one to your collection</h3>
-        {allWords.map((word) =>  <span key={word.id}><Cards word= {word}/></span>)}
+        {allWords.map((word) =>  <span key={word.id} className='card-display' ><Cards word= {word}/></span>)}
     </div>);
 }
  

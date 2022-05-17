@@ -55,7 +55,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <HomePage  />
             </PrivateRoute>
           }
         />

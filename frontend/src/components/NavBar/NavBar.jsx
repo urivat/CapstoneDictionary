@@ -15,6 +15,11 @@ const Navbar = () => {
         <b>My Cards</b>
         </Link> 
         </li>
+        <li>
+        <Link to="/user/study"  style={{ textDecoration: "none", color: "white" }}>
+        <b>Vocab Game</b>
+        </Link> 
+        </li>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>Simply Vocabulary</b>

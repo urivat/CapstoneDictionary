@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import Cards from '../../components/Collection/Cards';
-
+import './StudyPage.css'
 
 
 function StudyPage() {
     
 
   return (
-    <div><Cards/></div>
+    <div className='study'>
+      <img src='https://jooinn.com/images/ancient-book-7.png' alt='old books' />
+    </div>
   )
 }
 

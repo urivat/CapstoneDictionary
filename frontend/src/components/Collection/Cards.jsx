@@ -17,21 +17,16 @@ const Cards = ({word}) => {
         setShowList(true)
       }
       
-
-      // if (buttonClassLike === "inactive") {
-      //   setButtonClassLike("active");
-      // } else {
-      //   setButtonClassLike("inactive");
-      // }
-
     }
 
   return (
     <div style={{}}>
-      <Card
+      <Card variant="outlined"
         style={{
           width: 400,
           backgroundColor: "white",
+          marginBottom: '1em'
+          
         }}
       >
         <CardContent>
@@ -48,6 +43,7 @@ const Cards = ({word}) => {
         </CardContent>
         <CardActions>
           <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>
+          <Button variant="text" size="small" color="green">Add</Button>
         </CardActions>
       </Card>
     </div>
