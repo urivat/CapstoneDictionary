@@ -24,13 +24,13 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 
 function App() {
-  const [stats , setStats] = useState(0)
+  const [stats , setStats] = useState(false)
   const [user, token] = useAuth();
   const [userWords, setUserWords] = useState([]);
   const [allWords , setAllWords] = useState([])
-
-  const statTracker = (correct) => {
-    setStats((prev) => prev + 1 )
+// function reference.
+ function statTracker(stat){ 
+  setStats(stat)
   } 
   
   
