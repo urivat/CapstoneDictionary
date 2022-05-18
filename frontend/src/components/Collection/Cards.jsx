@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
- 
+import { useNavigate } from "react-router-dom";
 
 const Cards = ({word}) => {
   const [showList, setShowList] = useState(false)
@@ -18,6 +18,7 @@ const Cards = ({word}) => {
       }
       
     }
+const navigate = useNavigate()
 
   return (
     <div style={{}}>
@@ -43,7 +44,7 @@ const Cards = ({word}) => {
         </CardContent>
         <CardActions>
           <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>
-          <Button variant="text" size="small" color="green">Add</Button>
+          <Button variant="text" size="small" color="green" onClick={() => navigate('/user/study/')}>Add</Button>
         </CardActions>
       </Card>
     </div>
