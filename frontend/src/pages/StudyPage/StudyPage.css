@@ -1,15 +1,12 @@
 .study{
     margin:auto;
 }
-
-
-
 img {
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 50%;
-    width: 40%;
-    object-fit: fill ;
-    
-}
+    border-radius: 40%;
+    max-width: 300px;
+    height: auto;
+    float: right;
+    margin-right: 1em;
+  }
+
+

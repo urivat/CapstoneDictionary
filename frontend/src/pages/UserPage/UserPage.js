@@ -1,46 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import Cards from '../../components/Collection/Cards';
-import axios from 'axios';
+import Cards from "../../components/Collection/Cards";
+import axios from "axios";
+import UserWords from "../../components/UserWords/UserWords";
+import "./UserPage.css";
 
-const UserPage = ({dictionary}) => {
-    const [user, token] = useAuth();
-    const [wordList, setWordList] = useState([]);
-    
-    useEffect(() => {
-  const getAllWords = async () => {
-    try {
-      let res = await axios.get('http://127.0.0.1:8000/api/word/', {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setWordList(res.data)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }; getAllWords();
-}, [token]);
+const UserPage = (props) => {
+  const { userWords, user } = props;
 
   return (
-    <>
-    <h1>{user.username} </h1>
-    <div className='list'>
-    {wordList.map((word , index)=> {return <span key={index}><Cards word= {word}/></span>})}    
-    </div>
-    </>
-    
-   //return(
-//       <>
-//        {someArray.map(someItem => {
-//            return <p>{someItem.name}</p>
-//        })
-//       </>
-// )
-    
+    <div className="grid-container">
+      <h1 className="grid-item1">{user.username} </h1>
+      <UserWords  className= 'grid-item2' userWords={userWords} />
+      </div>
+  
 
-    
-  )
-}
+    //return(
+    //       <>
+    //        {someArray.map(someItem => {
+    //            return <p>{someItem.name}</p>
+    //        })
+    //       </>
+    // )
+  );
+};
 
-export default UserPage
+export default UserPage;

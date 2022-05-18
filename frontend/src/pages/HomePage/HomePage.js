@@ -9,11 +9,12 @@ import {
 } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import WordList from "../../components/WordList/WordList";
-import './HomePage.css'
+import "./HomePage.css";
 // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
 // The "token" value is the JWT token that you will send in the header of any request requiring authentication
 //TODO: Add an AddCars Page to add a car for a logged in user's garage
-const HomePage = () => {
+const HomePage = (props) => {
+  const {allWords} = props
   const [word, setWord] = useState("");
 
   const navigate = useNavigate();
@@ -25,16 +26,15 @@ const HomePage = () => {
   };
 
   return (
-    <Container maxWidth="sm" className="container" >
-      <form onSubmit={handleSubmit} className= 'search-bar'>
+    <Container maxWidth="sm" className="container">
+      <form onSubmit={handleSubmit} className="search-bar">
         <h1>Vocabulary</h1>
         <h3>SearchWord</h3>
         <input value={word} onChange={(event) => setWord(event.target.value)} />
-        {/* <FilledInput id="outlined-basic" margin="none"  label="Outlined" variant="outlined" value={word} onChange= {event => setWord(event.target.value)} /> */}
         <button type="submit">search</button>
       </form>
-    
-      <WordList />
+
+      <WordList allWords= {allWords}/>
     </Container>
   );
 };

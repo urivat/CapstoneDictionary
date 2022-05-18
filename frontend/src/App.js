@@ -2,6 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import useAuth from "./hooks/useAuth";
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -20,7 +22,91 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 
 
+
 function App() {
+  const [stats , setStats] = useState(0)
+  const [user, token] = useAuth();
+  const [userWords, setUserWords] = useState([]);
+  const [allWords , setAllWords] = useState([])
+
+  const statTracker = (correct) => {
+    setStats((prev) => prev + 1 )
+  } 
+  
+  
+  useEffect(() => {
+const getAllWords = async () => {
+  try {
+    let res = await axios.get('http://127.0.0.1:8000/api/word/', {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    setUserWords(res.data)
+  } catch (error) {
+    console.log(error.message)
+  }
+}; getAllWords();
+}, [token]);
+
+
+    
+useEffect(() => {
+        const getAllWords = async () => {
+          try {
+            let res = await axios.get('http://127.0.0.1:8000/api/word/all/', {
+            
+            });
+            setAllWords(res.data)
+          } catch (error) {
+            console.log(error.message)
+          }
+        }; getAllWords();
+      }, [allWords]);
+
+      
+
+  return (
+    <div>
+      <Navbar />
+      
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <HomePage allWords= {allWords} />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute>
+              <UserPage userWords={userWords} user={user} />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/user/study"
+          element={
+            <PrivateRoute>
+              <StudyPage statTracker={statTracker} stats = {stats} wordList= {userWords}/>
+            </PrivateRoute>
+          }
+        />
+        
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/search/:word" element={<Definition/>} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
 // const [words , setWords] = useState([{  //will hold words coming in to an array. 
 //   name: 'depart' ,  // intended this to be a sample word 
 //   definition: 'leave, especially in order to start a journey',
@@ -42,47 +128,3 @@ function App() {
   
   
 // }
-
-
-
-  return (
-    <div>
-      <Navbar />
-      
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage  />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/user"
-          element={
-            <PrivateRoute>
-              <UserPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/user/study"
-          element={
-            <PrivateRoute>
-              <StudyPage />
-            </PrivateRoute>
-          }
-        />
-        
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/search/:word" element={<Definition/>} />
-      </Routes>
-      <Footer />
-    </div>
-  );
-}
-
-export default App;
