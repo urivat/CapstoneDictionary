@@ -24,14 +24,13 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 
 function App() {
-  const [stats , setStats] = useState(false)
   const [user, token] = useAuth();
   const [userWords, setUserWords] = useState([]);
   const [allWords , setAllWords] = useState([])
-// function reference.
- function statTracker(stat){ 
-  setStats(stat)
-  } 
+  // function reference.
+
+
+
   
   
   useEffect(() => {
@@ -69,8 +68,6 @@ useEffect(() => {
   return (
     <div>
       <Navbar />
-      
-
       <Routes>
         <Route
           path="/"
@@ -92,7 +89,7 @@ useEffect(() => {
           path="/user/study"
           element={
             <PrivateRoute>
-              <StudyPage statTracker={statTracker} stats = {stats} wordList= {userWords}/>
+              <StudyPage />
             </PrivateRoute>
           }
         />

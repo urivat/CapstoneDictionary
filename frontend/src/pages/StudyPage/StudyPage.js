@@ -1,35 +1,20 @@
+import { getThemeProps } from "@material-ui/styles";
 import React, { useState } from "react";
 import Cards from "../../components/Collection/Cards";
 import "./StudyPage.css";
 
-function StudyPage(props) {
-  const { statTracker} = props;
-  const [stats, setStats] = useState(false);
-  const [buttonStatus, setButtonStatus] = useState('inactive')
-  const [newButtonStatus, setNewButtonStatus] =  useState('inactive')
-
+function StudyPage({userWords}) {
+  
+ 
+  const [answerCount, setAnswerCount] = useState(0)
+  
   const handleCorrect= (e) => {
     e.preventDefault()
-    if (buttonStatus === "inactive") {
-    setButtonStatus("active");
-    setStats(true)
-  } else {
-    setButtonStatus("inactive")
-    setStats(false);
-  } statTracker(stats)
-  };
-  const handleIncorrect = (e) =>{
-    e.preventDefault();
-    if(newButtonStatus === 'inactive'){
-      setNewButtonStatus('active');
-      setStats(false);
-
-    }
-    else {
-      setNewButtonStatus('inactive')
-      setStats(false)
-}     statTracker(stats)
-} 
+    setAnswerCount(answerCount + 1)
+    
+  } 
+   
+ 
   
 
   return (
@@ -42,14 +27,12 @@ function StudyPage(props) {
             alt="old books"
           />
           <div className="container">
-          <div>
-
+          <div>          
           </div>
-            <form>
+            <form onSubmit={handleCorrect}>
               <div>
-                <h2>Did you answer correctly?</h2>
-                <button className= {buttonStatus}  onClick={handleCorrect}>Correct</button>
-                <button className= {newButtonStatus}   onClick={handleIncorrect}>wrong</button>
+                <h2>I got it right {answerCount} times!</h2>
+                <button className='button' value={answerCount}>Correct</button>  
               </div>
             </form>
           </div>
@@ -60,3 +43,4 @@ function StudyPage(props) {
 }
 
 export default StudyPage;
+//increment count up.

@@ -44,7 +44,7 @@ const navigate = useNavigate()
         </CardContent>
         <CardActions>
           <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>
-          <Button variant="text" size="small" color="green" onClick={() => navigate('/user/study/')}>Add</Button>
+          <Button variant="text" size="small" color="green" onClick={() => navigate('/user/study/')}>learn</Button>
         </CardActions>
       </Card>
     </div>
