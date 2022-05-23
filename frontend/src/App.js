@@ -27,9 +27,14 @@ function App() {
   const [user, token] = useAuth();
   const [userWords, setUserWords] = useState([]);
   const [allWords , setAllWords] = useState([])
+  const [learnedWords , setLearnedWords] = useState([])
+  
   // function reference.
 
-
+const newLearned = (word) => {
+  const arr = [learnedWords, ...word]
+  setLearnedWords(arr); 
+}
 
   
   
@@ -89,7 +94,7 @@ useEffect(() => {
           path="/user/study"
           element={
             <PrivateRoute>
-              <StudyPage />
+              <StudyPage userWords={userWords} newLearned={newLearned} learnedWords= {learnedWords} />
             </PrivateRoute>
           }
         />

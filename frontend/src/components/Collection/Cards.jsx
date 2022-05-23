@@ -6,7 +6,9 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import { useNavigate } from "react-router-dom";
 
-const Cards = ({word}) => {
+const Cards = (props) => {
+  const {word , answerCount} = props
+
   const [showList, setShowList] = useState(false)
 
 
@@ -16,13 +18,16 @@ const Cards = ({word}) => {
       }else {
         setShowList(true)
       }
-      
+    
     }
+
+    
+
 const navigate = useNavigate()
 
   return (
     <div style={{}}>
-      <Card variant="outlined"
+       <Card variant="outlined"
         style={{
           width: 400,
           backgroundColor: "white",
@@ -35,19 +40,20 @@ const navigate = useNavigate()
             style={{ fontSize: 20 }}
             color="inherit"
             gutterBottom
-          >
-            {word.name}
+          > 
+            {word.name}  {answerCount}  
           </Typography>
           <Typography variant="h5" component="h2">
             {showList ? word.definition : ' '}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant='contained' size="small" color="black" onClick= {toggleState}  >Study</Button>
-          <Button variant="text" size="small" color="green" onClick={() => navigate('/user/study/')}>learn</Button>
+          <Button variant='contained' size="small"  onClick= {toggleState}  >Study</Button>
+          <Button variant="text" size="small" onClick={() => navigate('/user/study/')}>learn</Button>
         </CardActions>
       </Card>
     </div>
   );
 }
 export default Cards
+//*If i add a component call here that just displays information so that i can reuse these cards in multiple situations.*\\
