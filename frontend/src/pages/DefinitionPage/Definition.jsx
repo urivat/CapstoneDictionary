@@ -67,9 +67,10 @@ const handleSubmit = (event) => {
     <form className="container" onSubmit={handleSubmit}>
     <label>Definition </label> 
     <div>
+    <div>
       {loading ? 'loading' : `${wordData.word} `} <br/>
       {loading ? 'loading' : wordData.meanings[0].definitions[0].definition}
-      
+    </div>
       <Button type="submit"  variant="contained" size="small" color="inherit">Add</Button>
     </div>
     </form>

@@ -3,21 +3,24 @@ import Cards from "../Collection/Cards";
 
 const LearnedWord = (props) => {
   const { userWords, answerCount } = props;
+  const [data , setData] = useState([])
+  console.log(userWords)
+ 
+ 
 
   return (
     <div>
-      <ul>
-        {userWords.map((word, index) => {
-          return (
-            <li key={word.id}>
-              <Cards word={word} answerCount={answerCount} />
-              {word[index]}
-            </li>
-          );
-        })}
-      </ul>
+        <ul> 
+          <li></li> 
+        </ul>
     </div>
-  );
+    )
+  ;
 };
+       
+          
 export default LearnedWord;
-//
+//{userWords.filter((word) => {
+     //      if(word[0]){
+       //       return } 
+         // })}

@@ -10,10 +10,12 @@ const Containers = (props) => {
     setAnswerCount(answerCount + 1);
   };
 
-  const LearningList = () => {
+  const handleSubmit = () => {
     const newArray = userWords.filter((word) => word[0]);
     newLearned(newArray);
   };
+
+  
 
   return (
     <div>
@@ -24,11 +26,9 @@ const Containers = (props) => {
           Correct
         </button>
       </form>
-      <div>
-        <button className="button-2" onClick={LearningList}>
-          Add
-        </button>
-      </div>
+      <form onSubmit={handleSubmit}>
+      <button>Add</button>
+      </form>
     </div>
   );
 };

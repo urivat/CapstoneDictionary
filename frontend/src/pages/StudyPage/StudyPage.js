@@ -11,17 +11,22 @@ const {userWords , newLearned} = props
 
 
 
+
+
   return (
-    <div className="study">
-      <div className="study-content">
+    <div>
+      <div>
         <h1>Study Cards</h1>
         <div>
-          <img
+        <div>
+        <img
             src="https://jooinn.com/images/ancient-book-7.png"
             alt="old books"
           />
-          <div className="container">
-            <Containers userWords={userWords} newLearned= {newLearned} />
+          </div>
+          
+          <div>
+            <Containers userWords={userWords} newLearned={newLearned}/>
           </div>
         </div>
       </div>
