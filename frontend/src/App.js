@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import useAuth from "./hooks/useAuth";
 // Pages Imports
@@ -22,52 +22,53 @@ import PrivateRoute from "./utils/PrivateRoute";
 function App() {
   const [user, token] = useAuth();
   const [userWords, setUserWords] = useState([]);
-  const [allWords, setAllWords] = useState([]);
+  const [allHomeWords, setHomeWords] = useState([]);
   const [learnedWords, setLearnedWords] = useState([]);
-  const [isCanceled, setIsCanceled] = useState(false);
+  const [loading, setLoading] = useState(true);
   // function reference.
+  
+
 
   const newLearned = (word) => {
     const arr = [learnedWords, ...word];
     setLearnedWords(arr);
   };
-const controller = new AbortController();
-    const signal = controller.signal;
- 
-    useEffect(() => {
-    
-    const getAllWords = async () => {
+
+  useEffect(() => {
+    const getAll = async () => {
       try {
         let res = await axios.get("http://127.0.0.1:8000/api/word/", {
           headers: {
             Authorization: "Bearer " + token,
-          }, signal: signal
+            
+          
+          },
+        
+          
         });
-        
-          setUserWords(res.data);
-        
+        setUserWords(res.data);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
       }
-      
     };
-    getAllWords();
-          return () => {
-             controller.abort();
-    };
+    getAll();
   }, [token]);
 
   useEffect(() => {
-    const getAllWords = async () => {
+    const getWords = async () => {
       try {
-        let res = await axios.get("http://127.0.0.1:8000/api/word/all/", {});
-        setAllWords(res.data);
+        let response = await axios.get(
+          "http://127.0.0.1:8000/api/word/all/",
+          {}
+        );
+        setHomeWords(response.data);
       } catch (error) {
         console.log(error.message);
       }
     };
-    getAllWords();
-  }, [allWords]);
+    getWords();
+  }, []);
 
   return (
     <div>
@@ -77,7 +78,7 @@ const controller = new AbortController();
           path="/"
           element={
             <PrivateRoute>
-              <HomePage allWords={allWords} />
+              <HomePage allWords={allHomeWords} />
             </PrivateRoute>
           }
         />

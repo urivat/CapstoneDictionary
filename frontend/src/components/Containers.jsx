@@ -21,7 +21,9 @@ const Containers = (props) => {
     <div>
       <form onSubmit={handleCorrect}>
         <h2>I got it right {answerCount} times!</h2>
+      
         <LearnedWord userWords={userWords} answerCount={answerCount} />
+              
         <button className="button" value={answerCount}>
           Correct
         </button>
