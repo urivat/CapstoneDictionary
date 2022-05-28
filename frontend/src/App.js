@@ -84,7 +84,7 @@ function App() {
         />
         <Route
           path="/user"
-          element={
+          exact element={
             <PrivateRoute>
               <UserPage userWords={userWords} user={user} />
             </PrivateRoute>
