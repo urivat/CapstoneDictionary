@@ -10,10 +10,19 @@ import LearnedWord from "../../components/LearnedWord/LearnedWord";
 
 
 function StudyPage(props) {
+ const {userWords , newLearned} = props
+
+ const [learned , setLearned] = useState(Boolean)
+ const [wordIndex , setWordIndex] = useState(0)
  
-const {userWords , newLearned} = props
+ const handleLearned = (e) => {
+   e.preventDefault();
+   setLearned(true)
+ }
 
-
+ const checkIndex = word =>{
+ {wordIndex === word[wordIndex] ? setWordIndex() : 'no index found'}
+}
 
 
 
@@ -21,9 +30,7 @@ const {userWords , newLearned} = props
     <div>
       <div>
         <h1>Study Cards</h1> 
-        <LearnedWord userWords={userWords}/>
-        
-            
+        <LearnedWord userWords={userWords} checkIndex= {checkIndex} />
         <div>
         <div>
         <img

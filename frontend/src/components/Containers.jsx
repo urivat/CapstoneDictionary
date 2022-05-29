@@ -8,6 +8,7 @@ const Containers = (props) => {
   const handleCorrect = (e) => {
     e.preventDefault();
     setAnswerCount(answerCount + 1);
+    const learned = {}
   };
 
   const handleSubmit = () => {

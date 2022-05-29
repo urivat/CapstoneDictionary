@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "./hooks/useAuth";
 // Pages Imports
@@ -91,7 +91,7 @@ function App() {
           }
         />
         <Route
-          path="/user/study"
+          path={`/user/study/${key}`}
           element={
             <PrivateRoute>
               <StudyPage
