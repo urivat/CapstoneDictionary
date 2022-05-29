@@ -2,42 +2,30 @@ import React, { useState } from "react";
 import Cards from "../Collection/Cards";
 
 const LearnedWord = (props) => {
-  const { userWords, answerCount } = props;
-  const {loading,  setLoading} = useState(true)
-  console.log(userWords)
+  const { userWords } = props;
 
-const mappedWords = () => {
-  userWords.map((callbk , i ) => {
-    callbk.filter((word , i) => {
-      if(word[i] === 0){
-        return word
-      }
-      return <span><Cards word= {word[i]}/></span>
-    } 
-  )})
-}
+  const { loading, setLoading } = useState(true);
+  console.log(userWords[0]);
+
+//   const filteredWord = userWords.filter((word, i, arr) => {
+//     if (i !== arr[1]) {
+//       return i.name;
+//     }
+//     return word.name;
+//   });
+// console.log(filteredWord)
+
+
+  return <div>
   
-  
-  
-  
-  
-  
-  
-  
-  return (
-    <div>
-    {mappedWords()}
-    </div>
-    )
-  ;
+     <Cards word={userWords[0]} /> 
+  </div>;
 };
-       
-          
+
 export default LearnedWord;
 
-
 //{userWords.filter((word) => {
-     //      if(word[0]){
-       //       return } 
-         // })}
+//      if(word[0]){
+//       return }
+// })}
 /* return <li key={i}><Cards word= {first}/></li>; */

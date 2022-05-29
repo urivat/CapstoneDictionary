@@ -6,7 +6,7 @@ function UserWords(props) {
 
   return (
     <div>
-    <div > 
+    <div> 
     {userWords.map((word , index)=> {return <span key={index}><Cards word= {word} /></span>})}
     </div>
         

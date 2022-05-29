@@ -1,5 +1,5 @@
 import React from "react";
-import UserWords from "../../components/UserWords/UserWords";
+import UserWordList from "../../components/UserWordList/UserWordList";
 import "./UserPage.css";
 
 const UserPage = (props) => {
@@ -8,7 +8,7 @@ const UserPage = (props) => {
   return (
     <div className="grid-container">
       <h1 className="grid-item1">{user.username} </h1>
-      <UserWords className="grid-item2" userWords={userWords} />
+      <UserWordList className="grid-item2" userWords={userWords} />
     </div>
   );
 };

@@ -49,7 +49,7 @@ const navigate = useNavigate()
         </CardContent>
         <CardActions>
           <Button variant='contained' size="small"  onClick= {toggleState}  >Study</Button>
-          <Button variant="text" size="small" onClick={() => navigate('/user/study/')}>learn</Button>
+          <Button variant="text" size="small" onClick={() => navigate('/user/study')}>learn</Button> 
         </CardActions>
       </Card>
     </div>
@@ -57,3 +57,4 @@ const navigate = useNavigate()
 }
 export default Cards
 //*If i add a component call here that just displays information so that i can reuse these cards in multiple situations.*\\
+// what if I used a param hook to route navigate to a certain index so that card would be attached to a specific index.

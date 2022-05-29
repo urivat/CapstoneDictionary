@@ -1,9 +1,13 @@
 import { Container } from "@material-ui/core";
-import { getThemeProps } from "@material-ui/styles";
+
 import React, { useState } from "react";
 import Cards from "../../components/Collection/Cards";
 import Containers from '../../components/Containers'
 import "./StudyPage.css";
+import LearnedWord from "../../components/LearnedWord/LearnedWord";
+
+
+
 
 function StudyPage(props) {
  
@@ -16,7 +20,10 @@ const {userWords , newLearned} = props
   return (
     <div>
       <div>
-        <h1>Study Cards</h1>
+        <h1>Study Cards</h1> 
+        <LearnedWord userWords={userWords}/>
+        
+            
         <div>
         <div>
         <img
@@ -26,7 +33,8 @@ const {userWords , newLearned} = props
           </div>
           
           <div>
-            <Containers userWords={userWords} newLearned={newLearned}/>
+            <Containers  newLearned={newLearned}/>
+          
           </div>
         </div>
       </div>
