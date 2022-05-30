@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="navBar" >
       <div className="container">
         <form onSubmit={handleSubmit}>
-        <input value={word} onChange={(event) => setWord(event.target.value)} />
+        <input className="form-control" value={word} onChange={(event) => setWord(event.target.value)} />
         <button type="submit">search</button>
         </form>
       </div>
