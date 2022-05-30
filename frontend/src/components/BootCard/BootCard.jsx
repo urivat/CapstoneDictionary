@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useParams } from "react-router-dom";
 import ButtonCard from "./ButtonCard";
 
 
@@ -6,9 +7,10 @@ import ButtonCard from "./ButtonCard";
 
 const BootCard = (props) => {
     const {word} = props
-
+    
     const [showList, setShowList] = useState(false)
 
+    const {wordId} = useParams();
 
     const toggleState = () => {
       if (showList === true){
@@ -18,6 +20,14 @@ const BootCard = (props) => {
       }
     
     }
+    const filtered = word.filter((el) => el.id === wordId).word.map((card , index) => {
+      return (
+      <div key={index}>
+        <ButtonCard onClick={toggleState} idWord={card.id}/>
+      </div>
+    )})
+
+
 
 
     return ( 
@@ -25,7 +35,7 @@ const BootCard = (props) => {
             <div className="card-body">
             <h5 className="card-title">{word.name}</h5> 
             <p className="card-text">{showList ? word.definition : ''}</p>
-            <ButtonCard onClick={toggleState}/>
+            {filtered}
             </div>
         </div>
      );

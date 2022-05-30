@@ -8,23 +8,14 @@ const LearnedWord = (props) => {
   const { loading, setLoading } = useState(true);
   console.log(userWords[0]);
 
-const helpIndex = () =>
-{
-  let newHelper = {
-    id: 1,
-    name: 'string' , 
-    Definition : 'string', 
-    user_id: 1
-  } 
-  
-}
 
 
 
-  return <div>
+  return( 
+  <div>
     
      <Cards word={userWords[0]} /> 
-  </div>;
+  </div>)
 };
 
 export default LearnedWord;

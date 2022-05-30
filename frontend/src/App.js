@@ -91,7 +91,7 @@ function App() {
           }
         />
         <Route
-          path= '/user/study'
+          path= '/user/study/:wordId'
           element={
             <PrivateRoute>
               <StudyPage

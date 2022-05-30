@@ -21,14 +21,29 @@ const Navbar = () => {
     if (!shortenedWord || shortenedWord.split(" ").length > 1) return;
     navigate(`/search/${word}`);
   };
-
+  
 
   return (
     <div className="navBar" >
-      <div className="container">
+      <div>
         <form onSubmit={handleSubmit}>
-        <input className="form-control" value={word} onChange={(event) => setWord(event.target.value)} />
-        <button type="submit">search</button>
+        <div className="form-group col-md-6">
+        <label >Search for a word</label>
+        <input 
+            className="form-control form-control-sm" 
+            value={word} 
+            onChange={(event) => 
+            setWord(event.target.value)} />
+        </div>
+        <div className="form-group col-md-6">
+        <button 
+        className="btn btn-primary"
+        type="submit">
+        Search
+        </button>
+        </div>
+        
+        
         </form>
       </div>
       <ul className="container-fluid">      

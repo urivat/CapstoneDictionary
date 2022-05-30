@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 
  function ButtonCard(props) {
-        const {onClick} = props;
+        const {onClick , idWord} = props;
         const navigate = useNavigate()
+
+        
+
+
 
   return (
     <div>
     <button className='btn btn-primary' onClick={onClick}>Study</button>
-    <a className='btn btn-secondary' onClick={() => navigate('/user/study')}>Add</a>
+    <a className='btn btn-secondary' onClick={() => navigate(`/user/study/${idWord}`)}>Add</a>
     </div>
   )
 }
