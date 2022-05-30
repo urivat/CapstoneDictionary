@@ -91,7 +91,7 @@ function App() {
           }
         />
         <Route
-          path={`/user/study/${key}`}
+          path= '/user/study'
           element={
             <PrivateRoute>
               <StudyPage

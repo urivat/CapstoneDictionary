@@ -1,15 +1,19 @@
-import React, { useState , useEffect } from 'react'
-import Cards from '../Collection/Cards'
-import axios from 'axios'
+import React, {} from 'react'
 import './WordList.css'
+import BootCard from '../BootCard/BootCard'
 
 const WordList = (props) => {
     const {allWords} = props
-   
+    const mappedWords = allWords.map((word) =>  
+    <span key={word.id}>
+    <BootCard word= {word}/>
+    </span>)
+    
    return ( 
    <div className='container'>
         <h3>Add one to your collection</h3>
-        {allWords.map((word) =>  <span key={word.id} className='card-display' ><Cards word= {word}/></span>)}
+        <div>{mappedWords}</div>
+        
     </div>);
 }
  

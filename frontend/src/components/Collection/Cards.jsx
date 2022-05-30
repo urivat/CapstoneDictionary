@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import { useNavigate } from "react-router-dom";
 
 const Cards = (props) => {
-  const {word , answerCount , key} = props
+  const {word , answerCount } = props
 
   const [showList, setShowList] = useState(false)
 

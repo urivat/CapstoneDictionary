@@ -23,7 +23,7 @@ const helpIndex = () =>
 
   return <div>
     
-     <Cards word={userWords[wordIndex]} /> 
+     <Cards word={userWords[0]} /> 
   </div>;
 };
 
