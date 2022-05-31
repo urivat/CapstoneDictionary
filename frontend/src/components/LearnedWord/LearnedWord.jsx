@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Definition from "../../pages/DefinitionPage/Definition";
+import BootCard from "../BootCard/BootCard";
 import Cards from "../Collection/Cards";
 
 const LearnedWord = (props) => {
@@ -13,8 +14,7 @@ const LearnedWord = (props) => {
 
   return( 
   <div>
-    
-     <Cards word={userWords[0]} /> 
+     <BootCard word={userWords[0]} /> 
   </div>)
 };
 

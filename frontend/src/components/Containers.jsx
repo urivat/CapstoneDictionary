@@ -8,13 +8,12 @@ const Containers = (props) => {
   const handleCorrect = (e) => {
     e.preventDefault();
     setAnswerCount(answerCount + 1);
-    const learned = {}
   };
 
-  const handleSubmit = () => {
-    const newArray = userWords.filter((word) => word[0]);
-    newLearned(newArray);
-  };
+  const addButton = e => {
+    e.preventDefault();
+    alert('card added')
+  }
 
   return (
     <div>
@@ -25,8 +24,8 @@ const Containers = (props) => {
           Correct
         </button>
       </form>
-      <form onSubmit={handleSubmit}>
-        <button>Add</button>
+      <form>
+        <button onClick={addButton}>Add</button>
       </form>
     </div>
   );

@@ -6,14 +6,18 @@ function UserWords(props) {
     const {userWords} = props;
 
  const words = userWords.map((word , index) => {
-    return (<span key={index}>
+    return (<span key={index} className='col-sm'>
     <BootCard word= {word}  />
     </span>)
   })
 
 return (
     <div className='container'>
-    {words}    
+    <div className='row'>
+   
+    {words}   
+    
+    </div>
     </div>
     
     

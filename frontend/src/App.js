@@ -28,12 +28,6 @@ function App() {
   // function reference.
   
 
-
-  const newLearned = (word) => {
-    const arr = [learnedWords, ...word];
-    setLearnedWords(arr);
-  };
-
   useEffect(() => {
     const getAll = async () => {
       try {
@@ -91,13 +85,13 @@ function App() {
           }
         />
         <Route
-          path= '/user/study/:wordId'
+          path= '/user/study'
           element={
             <PrivateRoute>
               <StudyPage
                 userWords={userWords}
-                newLearned={newLearned}
-                learnedWords={learnedWords}
+                learnedWords={setLearnedWords}
+             
               />
             </PrivateRoute>
           }
