@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import Definition from "../../pages/DefinitionPage/Definition";
 import BootCard from "../BootCard/BootCard";
-import Cards from "../Collection/Cards";
+
 
 const LearnedWord = (props) => {
-  const { userWords , wordIndex , checkIndex} = props;
-
-  const { loading, setLoading } = useState(true);
+  const { userWords, randomWord} = props;
   console.log(userWords[0]);
 
 
@@ -14,7 +11,7 @@ const LearnedWord = (props) => {
 
   return( 
   <div>
-     <BootCard word={userWords[0]} /> 
+     <BootCard word={randomWord} /> 
   </div>)
 };
 
