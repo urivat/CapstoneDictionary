@@ -1,8 +1,11 @@
-import React, {} from 'react'
+import React, { useState } from 'react'
 import './WordList.css'
 import BootCard from '../BootCard/BootCard'
 
 const WordList = (props) => {
+
+    const [collected , setCollected] = useState([]);
+
     const {allWords} = props
     const mappedWords = allWords.map((word) =>  
     <span key={word.id}>

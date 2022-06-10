@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Containers from "../../components/Containers";
 import "./StudyPage.css";
 import LearnedWord from "../../components/LearnedWord/LearnedWord";
@@ -10,13 +10,14 @@ function StudyPage(props) {
 
 
   const [randomWord, setRandomWord] = useState([])
+  
 useEffect(() => {
       function randomGenerator(){
         let i = Math.floor(Math.random() * userWords.length)
         setRandomWord(userWords[i])
         } randomGenerator()
 
-}, [])
+}, [userWords])
   
   // const { wordId } = useParams();
   // const [learned, setLearned] = useState(Boolean);
