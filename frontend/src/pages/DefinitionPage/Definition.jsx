@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, {  useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Collection from "../../components/Collection/Cards";
+
 import Button from "@material-ui/core/Button";
 import useAuth from "../../hooks/useAuth";
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './WordList.css'
-import BootCard from '../BootCard/BootCard'
+
+import BootCard2 from '../BootCard/BootCard2';
 
 const WordList = (props) => {
 
@@ -9,12 +10,12 @@ const WordList = (props) => {
     const {allWords} = props
     const mappedWords = allWords.map((word) =>  
     <span key={word.id}>
-    <BootCard word= {word}/>
+    <BootCard2 word= {word}/>
     </span>)
     
    return ( 
    <div className='container'>
-        <h3>Add one to your collection</h3>
+        <h3>All Words availabe for study!</h3>
         <div>{mappedWords}</div>
         
     </div>);

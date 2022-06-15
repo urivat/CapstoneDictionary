@@ -1,6 +1,7 @@
 import React from "react";
-import Cards from "../Collection/Cards";
+
 import BootCard from "../BootCard/BootCard";
+import Collection from "../Collection/Collection";
 
 function UserWords(props) {
   const { userWords } = props;
@@ -14,8 +15,10 @@ function UserWords(props) {
   });
 
   return (
-    <div className="container">
-      <div className="row">{words}</div>
+    <div className="container-2">
+      <div className="row">
+     {words}
+      </div>
     </div>
   );
 }

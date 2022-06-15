@@ -7,8 +7,8 @@ const UserPage = (props) => {
 
   return (
     <div className="grid-container">
-      <h1 className="grid-item1">{user.username} </h1>
-      <UserWordList className="grid-item2" userWords={userWords} />
+      <h1 className="grid-item1">These are all of the user word for current user {user.username} </h1>
+      <UserWordList userWords={userWords} />
     </div>
   );
 };

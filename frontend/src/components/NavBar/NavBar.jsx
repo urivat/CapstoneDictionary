@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import SearchBar from "../SearchBar/SearchBar";
 import "./NavBar.css";
 
 const Navbar = () => {
@@ -16,26 +17,14 @@ const Navbar = () => {
     const shortenedWord = word.trim().toLowerCase();
     if (!shortenedWord || shortenedWord.split(" ").length > 1) return;
     navigate(`/search/${word}`);
+    setWord('')
   };
 
   return (
     <div className="navBar">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group col-md-6">
-            <label>Search for a word</label>
-            <input
-              className="form-control form-control-sm"
-              value={word}
-              onChange={(event) => setWord(event.target.value)}
-            />
-          </div>
-          <div className="form-group col-md-6">
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </div>
-        </form>
+      <div> {user ? 
+      <SearchBar handleSubmit={handleSubmit} word={word} setWord= {setWord}/> : null
+      }
       </div>
       <ul className="nav">
         <li className="nav-item">
@@ -69,3 +58,19 @@ const Navbar = () => {
 };
 
 export default Navbar;
+{/* <div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group col-md-6">
+            <label>Search for a word</label>
+            <input
+              className="form-control form-control-sm"
+              value={word}
+              onChange={(event) => setWord(event.target.value)}
+            />
+          </div>
+          <div className="form-group col-md-6">
+            <button className="btn btn-primary" type="submit">
+              Search
+            </button>
+          </div>
+        </form> */}
